@@ -38,9 +38,9 @@ Q1 = """CREATE TABLE Restos (
 # mycursor.execute("DROP TABLE Restos")
 # db.commit()
 
-mycursor.execute("DESCRIBE Restos")
-for x in mycursor:
-    print(x) 
+# mycursor.execute("DESCRIBE Restos")
+# for x in mycursor:
+#     print(x) 
 
 
 
