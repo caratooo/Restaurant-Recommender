@@ -10,15 +10,15 @@ db = mysql.connector.connect(
 
 mycursor = db.cursor()
 
-def read_restos(file: str):
-    """
+def read_restos(file: str) -> None:
+    """ Reads all restaurants and their values in csv file. Then inserts them into the restaurant database.
     """
     with open(file) as csv_file:
         reader = csv.reader(csv_file)
         header = next(reader)
 
         Q1 = """INSERT INTO Restos (resto_name, rating, num_reviews, resto_type, price_point, address, personal_note)
-                VALUES (%s,%s,%s,%s,%s,%s,%s)
+                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)
              """
         
         for row in reader:
@@ -28,16 +28,18 @@ def read_restos(file: str):
             resto_type = str(row[3])
             price_point = str(row[4])
             address = str(row[5])
+            area = str(row[6])
             personal = str(row[7])
+            gm_embed = str(row[8])
             
             if price_point == '':
-                Q2 = """INSERT INTO Restos (resto_name, rating, num_reviews, resto_type, address, personal_note) 
-                        VALUES(%s,%s,%s,%s,%s,%s)
+                Q2 = """INSERT INTO Restos (resto_name, rating, num_reviews, resto_type, address, area, personal_note, gm_embed) 
+                        VALUES(%s,%s,%s,%s,%s,%s,%s,%s)
                      """
-                mycursor.execute(Q2, (name, rating, num_reviews, resto_type, address, personal))
+                mycursor.execute(Q2, (name, rating, num_reviews, resto_type, address, area, personal, gm_embed))
                 db.commit()
             else:
-                mycursor.execute(Q1, (name, rating, num_reviews, resto_type, price_point, address, personal))
+                mycursor.execute(Q1, (name, rating, num_reviews, resto_type, price_point, address, area, personal, gm_embed))
                 db.commit()
 
 
@@ -45,7 +47,7 @@ def read_restos(file: str):
 
 # mycursor.execute("SHOW TABLES")
 
-mycursor.execute("SELECT * FROM Restos")
+# mycursor.execute("SELECT * FROM Restos")
 
-for x in mycursor:
-    print(x)
+# for x in mycursor:
+#     print(x)

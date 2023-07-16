@@ -28,7 +28,9 @@ Q1 = """CREATE TABLE Restos (
     resto_type VARCHAR(50) NOT NULL, 
     price_point VARCHAR(5),
     address VARCHAR(50) NOT NULL,
+    area VARCHAR(50) NOT NULL,
     personal_note VARCHAR(200) NOT NULL
+    gm_embed_html VARCHAR(1000) NOT NULL
     )  
     """
 
