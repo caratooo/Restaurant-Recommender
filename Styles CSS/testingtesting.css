@@ -1,3 +1,56 @@
-.background {
-    background-image: url('example_img_girl.jpg');
+html {
+  background-color: rgb(224, 201, 172);
+  justify-content: center;
+  align-items: center;
 }
+
+.outer-part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+}
+
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100%;
+  height: fit-content;
+  width: fit-content;
+}
+
+.testing {
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+  width: fit-content;
+}
+
+@media (max-width: 600px) {
+  .testing {
+    width: fit-content;
+  }
+  .background {
+    padding-top: 70px;
+  }
+}
+
+@media (min-width: 600px) {
+  .testing {
+    height: 600px;
+    width: fit-content;
+  }
+  .background {
+    padding-top: 10px;
+  }
+}
+

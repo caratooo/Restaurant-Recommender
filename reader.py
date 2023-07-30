@@ -51,3 +51,6 @@ def read_restos(file: str) -> None:
 
 # for x in mycursor:
 #     print(x)
+
+
+# mycursor.
